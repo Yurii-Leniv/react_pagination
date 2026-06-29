@@ -29,6 +29,7 @@ export const Pagination: React.FC<Props> = ({
           aria-disabled={isPrevDisabled}
           onClick={e => {
             e.preventDefault();
+            if (isPrevDisabled) return;
             onPageChange(currentPage - 1);
           }}
         >
@@ -47,6 +48,7 @@ export const Pagination: React.FC<Props> = ({
             href={`#${page}`}
             onClick={e => {
               e.preventDefault();
+              if (page === currentPage) return;
               onPageChange(page);
             }}
           >
@@ -63,6 +65,7 @@ export const Pagination: React.FC<Props> = ({
           aria-disabled={isNextDisabled}
           onClick={e => {
             e.preventDefault();
+            if (isNextDisabled) return;
             onPageChange(currentPage + 1);
           }}
         >
